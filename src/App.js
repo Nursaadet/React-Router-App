@@ -5,8 +5,8 @@ import Home from "./pages/Home";
 import People from "./pages/People";
 import Paths from "./pages/Paths";
 import NotFound from "./pages/NotFound";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PersonDetail from "./pages/PersonDetail";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (

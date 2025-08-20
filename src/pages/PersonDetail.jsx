@@ -1,38 +1,51 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import NotFound from "./NotFound";
 
 const PersonDetail = () => {
   const [person, setPerson] = useState([]);
   const navigate = useNavigate();
   const { id } = useParams();
+  const [error, setError] = useState(false);
 
   const getPerson = () => {
     fetch(`https://reqres.in/api/users/${id}`)
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          setError(true);
+          throw new Error("User can not be found");
+        }
+        return res.json();
+      })
       .then((data) => setPerson(data.data))
       .catch((err) => console.log(err));
   };
   useEffect(() => {
     getPerson();
   }, []);
-  return (
-    <div className="container text-center mt-4">
-      <img className="rounded" src={person?.avatar} alt="img" />
 
-      <h6>
-        {person?.first_name} {person?.last_name}
-      </h6>
-      <p>{person?.email}</p>
-      <div>
-        <button className="btn btn-danger" onClick={() => navigate("-1")}>
-          Back
-        </button>
-        <button className="btn btn-success" onClick={() => navigate("/")}>
-          Home
-        </button>
+  if (error) {
+    return <NotFound />;
+  } else {
+    return (
+      <div className="container text-center mt-4">
+        <img className="rounded" src={person?.avatar} alt="img" />
+
+        <h6>
+          {person?.first_name} {person?.last_name}
+        </h6>
+        <p>{person?.email}</p>
+        <div>
+          <button className="btn btn-danger" onClick={() => navigate("-1")}>
+            Back
+          </button>
+          <button className="btn btn-success" onClick={() => navigate("/")}>
+            Home
+          </button>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default PersonDetail;
