@@ -1,5 +1,5 @@
-import errorImg from "../img/404.png";
 import { useNavigate } from "react-router-dom";
+import errorImg from "../img/404.png";
 
 const NotFound = () => {
   const navigate = useNavigate()

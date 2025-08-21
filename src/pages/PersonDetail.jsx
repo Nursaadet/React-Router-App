@@ -1,30 +1,44 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import NotFound from "./NotFound";
+import spinner from "../img/Spinner-2.gif";
 
 const PersonDetail = () => {
   const [person, setPerson] = useState([]);
-  const navigate = useNavigate();
-  const { id } = useParams();
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  console.log(id)
   const getPerson = () => {
+    setLoading(true);
     fetch(`https://reqres.in/api/users/${id}`)
       .then((res) => {
         if (!res.ok) {
           setError(true);
+          setLoading(false);
           throw new Error("User can not be found");
         }
         return res.json();
       })
-      .then((data) => setPerson(data.data))
+      .then((data) => {
+        setLoading(false);
+        setPerson(data.data);
+      })
       .catch((err) => console.log(err));
   };
   useEffect(() => {
     getPerson();
   }, []);
-
-  if (error) {
+  if (loading) {
+    return (
+      <div className="text-center">
+        <img src={spinner} alt="spinner" />
+      </div>
+    );
+  } else if (error) {
     return <NotFound />;
   } else {
     return (
@@ -39,7 +53,7 @@ const PersonDetail = () => {
           <button className="btn btn-danger" onClick={() => navigate("-1")}>
             Back
           </button>
-          <button className="btn btn-success" onClick={() => navigate("/")}>
+          <button className="btn btn-success m-1" onClick={() => navigate("/")}>
             Home
           </button>
         </div>
