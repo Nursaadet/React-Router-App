@@ -11,7 +11,7 @@ const PersonDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  console.log(id)
+  console.log(id);
   const getPerson = () => {
     setLoading(true);
     fetch(`https://reqres.in/api/users/${id}`)

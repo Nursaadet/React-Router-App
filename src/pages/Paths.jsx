@@ -15,20 +15,20 @@ const Paths = () => {
         experts!
       </p>
       <div className="d-flex justify-content-center align-items-center gap-3 mt-4">
-  <button
-    className="btn btn-success w-40 p-3 fw-bold shadow-lg rounded-pill"
-    onClick={() => navigate("")}
-  >
-     Full Stack
-  </button>
+        <button
+          className="btn btn-success w-40 p-3 fw-bold shadow-lg rounded-pill"
+          onClick={() => navigate("")}
+        >
+          Full Stack
+        </button>
 
-  <button
-    className="btn btn-warning w-40 p-3 fw-bold shadow-lg rounded-pill"
-    onClick={() => navigate("aws")}
-  >
-     AWS - DevOps
-  </button>
-</div>
+        <button
+          className="btn btn-warning w-40 p-3 fw-bold shadow-lg rounded-pill"
+          onClick={() => navigate("aws")}
+        >
+          AWS - DevOps
+        </button>
+      </div>
       <Outlet />
     </div>
   );

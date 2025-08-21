@@ -1,5 +1,5 @@
 const Azure = () => {
-  return <h3>Azure</h3>
-}
+  return <h3>Azure</h3>;
+};
 
-export default Azure
+export default Azure;
