@@ -50,7 +50,7 @@ const PersonDetail = () => {
         </h6>
         <p>{person?.email}</p>
         <div>
-          <button className="btn btn-danger" onClick={() => navigate("-1")}>
+          <button className="btn btn-danger" onClick={() => navigate(-1)}>
             Back
           </button>
           <button className="btn btn-success m-1" onClick={() => navigate("/")}>

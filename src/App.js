@@ -9,6 +9,8 @@ import PersonDetail from "./pages/PersonDetail";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import FS from "./pages/FS";
 import AWS from "./pages/AWS";
+import Azure from "./pages/Azure";
+import Google from "./pages/Google";
 
 function App() {
   return (
@@ -19,11 +21,12 @@ function App() {
         <Route path="/people" element={<People />} />
         <Route path="/people/:id" element={<PersonDetail />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/paths" element={<Paths />} >
-
-        <Route path="fs" element={<FS />} />
-        <Route path="aws" element={<AWS />} />
-
+        <Route path="/paths" element={<Paths />}>
+          <Route index path="" element={<FS />} />
+          <Route path="aws" element={<AWS />}>
+            <Route path="azure" element={<Azure />} />
+            <Route path="google" element={<Google />} />
+          </Route>
         </Route>
 
         <Route path="*" element={<NotFound />} />

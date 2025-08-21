@@ -15,7 +15,7 @@ const AWS = () => {
         best IT jobs!
       </p>
 
-      
+      <Outlet />
       <img
         src="https://clarusway.com/wp-content/uploads/elementor/thumbs/Aws-Solution-Architech-1-pmxc3z6r0ibsy5uixyzfrgrdilrq8nu5yid937d8w8.jpg"
         alt="AWS DevOps"
@@ -26,7 +26,7 @@ const AWS = () => {
           Learn More
         </button>
       </div>
-       <Outlet />
+       
 
     </div>
   </div>

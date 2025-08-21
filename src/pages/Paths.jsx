@@ -17,7 +17,7 @@ const Paths = () => {
       <div className="d-flex justify-content-center align-items-center gap-3 mt-4">
   <button
     className="btn btn-success w-40 p-3 fw-bold shadow-lg rounded-pill"
-    onClick={() => navigate("fs")}
+    onClick={() => navigate("")}
   >
      Full Stack
   </button>
