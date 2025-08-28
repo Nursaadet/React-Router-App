@@ -13,35 +13,35 @@ import Azure from "./pages/Azure";
 import Google from "./pages/Google";
 import Login from "./pages/Login";
 import PrivateRouter from "./pages/PrivateRouter";
-import {LoginContext} from "./context/LoginContext"
+import { LoginContext } from "./context/LoginContext";
 import { useState } from "react";
 function App() {
-  const [signed, setSigned] = useState(false)
+  const [signed, setSigned] = useState(false);
   return (
-    <LoginContext.Provider value={{signed, setSigned}}>
+    <LoginContext.Provider value={{ signed, setSigned }}>
       <BrowserRouter>
-      <Nav />
-      <Routes>
-        <Route path="/" element={<Home />} />
+        <Nav />
+        <Routes>
+          <Route path="/" element={<Home />} />
 
-        <Route path="/people" element={<PrivateRouter />} >
-          <Route path="" element={<People />} />
-          <Route path=":id" element={<PersonDetail />} />
-        </Route>
-
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/paths" element={<Paths />}>
-          <Route index path="" element={<FS />} />
-          <Route path="aws" element={<AWS />}>
-            <Route path="azure" element={<Azure />} />
-            <Route path="google" element={<Google />} />
+          <Route path="/people" element={<PrivateRouter />}>
+            <Route path="" element={<People />} />
+            <Route path=":id" element={<PersonDetail />} />
           </Route>
-        </Route>
-        <Route path="/login" element={<Login />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-      <Footer />
-    </BrowserRouter>
+
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/paths" element={<Paths />}>
+            <Route index path="" element={<FS />} />
+            <Route path="aws" element={<AWS />}>
+              <Route path="azure" element={<Azure />} />
+              <Route path="google" element={<Google />} />
+            </Route>
+          </Route>
+          <Route path="/login" element={<Login />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
     </LoginContext.Provider>
   );
 }
