@@ -1,10 +1,11 @@
-import { Outlet, Link, useNavigate, Navigate } from "react-router-dom";
-// import Login from "./Login";
+import { Outlet, Navigate } from "react-router-dom";
+import { useContext } from "react";
+import { LoginContext } from "../context/LoginContext";
+import React from "react";
 
-function PrivateRouter() {
-  const isLogged = false;
-//   const navigate = useNavigate();
-  return <div>{isLogged ? <Outlet /> : <Navigate to ={"/login"}/>}  </div>;
-}
+const PrivateRouter = () => {
+  const { signed } = useContext(LoginContext);
+  return signed ? <Outlet /> : <Navigate to="/login" />;
+};
 
 export default PrivateRouter;
