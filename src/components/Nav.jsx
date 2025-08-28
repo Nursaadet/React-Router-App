@@ -3,13 +3,15 @@ import Container from "react-bootstrap/Container";
 import BootstrapNav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Image from "react-bootstrap/Image";
-// import { useContext } from "react";
-// import { LoginContext } from "../context/LoginProvider";
+import { useLoginContext } from "../context/LoginProvider";
+import { useContext } from "react";
+import { LangContext } from "../context/LangProvider";
 
 function Nav() {
   // const { signed, setSigned } = useContext(LoginContext);
 
   const {signed, setSigned} =useLoginContext()
+  const {currLang, setCurrlang} = useContext(LangContext)
   return (
     <Navbar expand="md">
       <Container>
