@@ -1,6 +1,6 @@
 import { Outlet, Navigate } from "react-router-dom";
 import { useContext } from "react";
-import { LoginContext } from "../context/LoginContext";
+import { LoginContext } from "../context/LoginProvider";
 import React from "react";
 
 const PrivateRouter = () => {

@@ -4,7 +4,7 @@ import BootstrapNav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Image from "react-bootstrap/Image";
 import { useContext } from "react";
-import { LoginContext } from "../context/LoginContext";
+import { LoginContext } from "../context/LoginProvider";
 
 function Nav() {
   const { signed, setSigned } = useContext(LoginContext);

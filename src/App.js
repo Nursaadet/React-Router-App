@@ -13,12 +13,12 @@ import Azure from "./pages/Azure";
 import Google from "./pages/Google";
 import Login from "./pages/Login";
 import PrivateRouter from "./pages/PrivateRouter";
-import { LoginContext } from "./context/LoginContext";
+import LoginProvider, from "./context/LoginProvider";
 import { useState } from "react";
 function App() {
-  const [signed, setSigned] = useState(false);
+  
   return (
-    <LoginContext.Provider value={{ signed, setSigned }}>
+     <LoginProvider>
       <BrowserRouter>
         <Nav />
         <Routes>
@@ -42,7 +42,8 @@ function App() {
         </Routes>
         <Footer />
       </BrowserRouter>
-    </LoginContext.Provider>
+      </LoginProvider>
+    
   );
 }
 
