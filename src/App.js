@@ -13,7 +13,7 @@ import Azure from "./pages/Azure";
 import Google from "./pages/Google";
 import Login from "./pages/Login";
 import PrivateRouter from "./pages/PrivateRouter";
-import LoginProvider, from "./context/LoginProvider";
+import LoginProvider from "./context/LoginProvider";
 import { useState } from "react";
 function App() {
   
