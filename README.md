@@ -3,6 +3,13 @@
 
 This project is a demonstration of a React app built with React Router, including nested routes, private routes, Context API for state management, and fetching data using useEffect and the axios. The app fetches data from a followers API and displays it accordingly.
 
+
+
+## Demo
+
+👉 You can access the live demo of this project [here](https://wondrous-pixie-215d5d.netlify.app/).
+
+
 ## Installation
 
 Install my-project with npm

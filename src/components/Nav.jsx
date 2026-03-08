@@ -4,14 +4,10 @@ import BootstrapNav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Image from "react-bootstrap/Image";
 import { useLoginContext } from "../context/LoginProvider";
-import { useContext } from "react";
-import { LangContext } from "../context/LangProvider";
 
 function Nav() {
-  // const { signed, setSigned } = useContext(LoginContext);
+  const { signed, setSigned } = useLoginContext();
 
-  const {signed, setSigned} =useLoginContext()
-  const {currLang, setCurrlang} = useContext(LangContext)
   return (
     <Navbar expand="md">
       <Container>
@@ -24,15 +20,19 @@ function Nav() {
             />
           </Link>
         </Navbar.Brand>
+
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
         <Navbar.Collapse id="basic-navbar-nav">
           <BootstrapNav className="ms-auto">
             <Link className="nav-link" to="/">
               Home
             </Link>
+
             <Link className="nav-link" to="/about">
               About
             </Link>
+
             <Link className="nav-link" to="/people">
               People
             </Link>
@@ -58,3 +58,4 @@ function Nav() {
 }
 
 export default Nav;
+
