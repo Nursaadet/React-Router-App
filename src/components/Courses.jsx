@@ -1,4 +1,4 @@
-import courses from '../data';
+import courses from '../helpers/data';
 
 const Courses = () => {
   return (
